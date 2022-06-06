@@ -3,7 +3,9 @@
 # and commit this file to your remote git repository to share the goodness with others.
 
 tasks:
-  - init: yarn install && brew install planetscale/tap/pscale && brew install mysql-client && npx prisma init && yarn run build 
+  - init: yarn install && brew install planetscale/tap/pscale && brew install mysql-client
+    command: echo 'export PATH="/home/linuxbrew/.linuxbrew/opt/mysql-client/bin:$PATH"' >> /home/gitpod/.bash_profile && export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/mysql-client/lib && export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/mysql-client/include"
+  - init: npx prisma init && yarn run build 
     command: yarn run start
 
 ports:
