@@ -5,7 +5,9 @@
 tasks:
   - init: yarn install && brew install planetscale/tap/pscale && brew install mysql-client
     command: echo 'export PATH="/home/linuxbrew/.linuxbrew/opt/mysql-client/bin:$PATH"' >> /home/gitpod/.bash_profile && export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/mysql-client/lib && export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/mysql-client/include"
-  - init: npx prisma init && yarn run build 
+  - init: npx prisma init
+    command: y
+  - init: yarn run build 
     command: yarn run start
 
 ports:
